@@ -82,9 +82,9 @@ graph TD
 ```java
 import java.io.PrintStream;
 import java.util.Scanner;
-import java.util.Arrays;
 
-public class Main{
+
+public class j_1{
     // Объявляем объект класса Scanner для ввода данных
     public static Scanner in = new Scanner(System.in);
     // Объявляем объект класса PrintStream для вывода данных
@@ -94,12 +94,31 @@ public class Main{
         Scanner scanner = new Scanner(System.in);
         long a = scanner.nextLong(), b = scanner.nextLong();
         long c = scanner.nextLong(), d  = scanner.nextLong();
-        // Создание массива lst
-        long [] lst = {a,b,c,d};
-        // Сортировка массива lst по возрастанию
-        Arrays.sort(lst);
-        // Вывод второго элемента lst в консоль
-        out.print(lst[1]);
+
+        if (a < b && a < c && a < d){
+            // a - наименьшее
+            if (b < c && b < d) out.println(b);
+            else if (c < b && c < d) out.println(c);
+            else out.println(d);
+        }
+        else if (b < a && b < c && b < d) {
+            // b - наименьшее
+            if (a < c && a < d) out.println(a);
+            else if (c < a && c < d) out.println(c);
+            else out.println(d);
+        }
+        else if (c < a && c < b && c < d) {
+            // c - наименьшее
+            if (a < b && a < d) out.println(a);
+            else if (b < a && b < d) out.println(b);
+            else out.println(d);
+        }
+        else {
+            // d - наименьшее
+            if (a < b && a < c) out.println(a);
+            else if (b < a && b < c) out.println(b);
+            else out.println(c);
+        }
     }
 }
 ```
